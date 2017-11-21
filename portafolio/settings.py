@@ -15,12 +15,23 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+from django.core.exceptions import ImproperlyConfigured
+
+
+def get_env_variable(var_name):
+    try:
+        return os.getenv(var_name)
+    except KeyError:
+        error_msg = 'Set the {var_name} environment variable'
+        raise ImproperlyConfigured(error_msg.format(var_name=var_name))
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'c5b=f3^uf6-ueat2)t3gs#z#t+!)u6x#%==+a!gaaq%fd7l%wy'
+# El valor de SECRET_KEY lo cargue a una variable de entorno
+SECRET_KEY = get_env_variable('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -77,11 +88,11 @@ WSGI_APPLICATION = 'portafolio.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'testdb',
-        'USER': 'django1',
-        'PASSWORD': 'djangotest777',
+        'NAME': get_env_variable('DJANGO_DB_NAME'),
+        'USER': get_env_variable('DJANGO_DB_USER_LOCAL'),
+        'PASSWORD': get_env_variable('DJANGO_DB_PSW_LOCAL'),
         'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
-        'PORT': '3306',
+        'PORT': get_env_variable('DJANGO_DB_PORT'),
     }
 }
 
