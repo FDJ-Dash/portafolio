@@ -1,5 +1,8 @@
 *.pyc
-
+log.txt
 *.sqlite3
-
+*.log
 *.idea/
+*.pot
+__pycache__/
+media
