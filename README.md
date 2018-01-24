@@ -1,5 +1,5 @@
 # portafolio con Django
-# FDJ
+### FDJ
 This is not the real thing. This was made using static HTML in order to work with github pages.
 
-im currently working on a real proyect on Django with Python 3.5+. 
+I'm currently working on a real proyect on Django with Python 3.5+. 
