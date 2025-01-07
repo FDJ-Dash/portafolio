@@ -1,5 +1,6 @@
-# portafolio con Django
+# Memento of part of my past
 ### FDJ
-This is not the real thing. This was made using static HTML in order to work with github pages.
+This was made using static HTML in order to work with github pages.
 
-I'm currently working on a real proyect on Django with Python 3.5+. 
+I'm currently working on a real proyect on Django with Python 3.5+. (*)
+(*) Year 2025 update. The correct tense now is "I was working..". 
